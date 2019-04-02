@@ -1,0 +1,255 @@
+  DIRECT MANIPULATION
+  ___________________
+ 
+  The User Interface Class Library provides four types of objects to support
+  direct manipulation:
+ 
+  o   An event handler (IDMSourceHandler or IDMTargetHandler)
+ 
+  o   A renderer (IDMSourceRenderer or IDMTargetRenderer)
+ 
+  o   A drag item (IDMItem)
+ 
+  o   A drag item provider (IDMItemProvider)
+ 
+  IDMSourceHandler and IDMTargetHandler are derived from IHandler.  They handle
+  the Presentation Manager direct manipulation window messages.  Objects from
+  these classes pick off the WM_* and DM_* messages for the source and target
+  windows and translate them to virtual function calls to the handler.
+ 
+  In addition to translating messages to virtual function calls, these handlers
+  also manage the second type of objects, the renderers.  Renderers transfer
+  the representation of the object being manipulated between the source and
+  target windows.  Direct manipulation renderers are objects of classes
+  IDMSourceRenderer and IDMTargetRenderer.
+ 
+  The third type of objects are the drag items, represented by objects of class
+  IDMItem.  These objects encapsulate the logic that serves as the bridge
+  between the context-insensitive handlers and renderers and the
+  application-specific behavior of particular source and target windows.  Put
+  another way, the drag items provide the application-specific semantics of the
+  direct manipulation operation.  For example, the handler and renderer classes
+  can manipulate IString objects, but the entry field items know how to extract
+  the source IString from the source entry field and convert it to a customer
+  object in the target window.
+ 
+  Objects of the IDMItemProvider class allow generic controls like an entry
+  field to generate context-sensitive drag items; for example, an entry field
+  that contains customer names can generate a "customer" item; a bit map can
+  provide an item that can extract the picture from a .bmp file.
+ 
+  User Interface Class Library provides direct manipulation for:
+ 
+  o   Entry field
+  o   Multiple-line edit
+ 
+ 
+  (C) Copyright IBM Corp. 1993                                                1
+ 
+  ENABLING DIRECT MANIPULATION
+  ____________________________
+ 
+  To enable direct manipulation for an entry field or multiple-line edit
+  control, create instances of IDMSourceHandler and IDMTargetHandler and attach
+  each to a control.
+ 
+  The following sample code enables direct manipulation of text between two
+  entry fields in the same process.
+ 
+    .
+    .
+    .
+     9 void main()
+    10 {
+    11   IFrameWindow
+    12    frame( "ICLUI Direct Manipulation Sample 1" );
+    13
+    14   IEntryField                     //Create window with two
+    15     client( 0, &frame, &frame ),  //entry fields, client and ext.
+    16     ext   ( 0, &frame, &frame );
+    17
+    18   IDMSOURCEHANDLER                //DEFINE A SOURCE HANDLER FOR
+    19     SRCHANDLER( &CLIENT );        //THE ENTRY FIELD CLIENT.
+    20   IDMTARGETHANDLER                //DEFINE A TARGET HANDLER FOR
+    21     TGTHANDLER( &CLIENT );        //THE ENTRY FIELD CLIENT.
+    22
+    23   EXT.SETITEMPROVIDER(CLIENT.ITEMPROVIDER());//ADD DRAG ITEM
+    24                                              //PROVIDER FOR EXT.
+    25   SRCHANDLER.HANDLEEVENTSFOR(&EXT);//ADD SOURCE HANDLER FOR EXT.
+    26   TGTHANDLER.HANDLEEVENTSFOR(&EXT);//ADD TARGET HANDLER FOR EXT.
+    27
+    28   frame
+    29     .setClient( &client )
+    30     .addExtension( &ext, IFrameWindow::belowClient, 0.5 )
+    31     .setFocus()
+    32     .show();
+    33
+    34   IApplication::current().run();
+    35
+    36 }
+ 
+  Lines 18 and 19 create an instance of IDMSourceHandler and attach it to the
+  CLIENT entry field.  IDMSourceHandler creates a drag item provider for the
+  entry field if one has not already been created.
+ 
+  Lines 20 and 21 create an instance of IDMTargetHandler and attach it to the
+  CLIENT entry field.
+ 
+  Line 23 attaches the drag item provider to the EXT entry field.  The drag
+  item provider was created by the IDMSourceHandler constructor that was
+  invoked on lines 18 and 19.
+ 
+  Lines 25 and 26 attach the source and target handlers that were created on
+  lines 18 through 20 to the EXT entry field.
+ 
+ 
+  ADDING DIRECT MANIPULATION TO AN OBJECT
+  _______________________________________
+ 
+  To add direct manipulation to other controls:
+ 
+  o   Add IDMItem as the base for the current application object.
+ 
+  o   Write a drag item provider for the customized object using
+      IDMItemProvider.
+ 
+  o   Create the drag item provider, the renderer, and the handler for the
+      customized object.
+ 
+  The following example adds direct manipulation to a bit-map control.  The
+  header file defines two classes, ABitmapItem and ABitmapProvider.  The cpp
+  file adds the drag item provider, the target handler, and the target
+  renderer.
+ 
+    .
+    .
+    .
+     5 class ABitmapItem : public IDMItem {
+     6 public:
+     7 ABitmapItem ( const IDMItemHandle &item );
+     8 virtual Boolean
+     9   setTargetContents ( const IString &, IWindow* target );
+    10 };
+    11
+    12 class ABitmapProvider : public IDMItemProvider {
+    13 public:
+    14 virtual Boolean
+    15   provideSourceItems ( const IDMSrcOperationHandle ) { return false; }
+    16 virtual IDMItemHandle
+    17   provideTargetItemFor ( const IDMItemHandle item );
+    18 };
+ 
+  Lines 5 through 10 declare IDMItem as the base for objects of a specialized
+  class named ABitmapItem.
+ 
+  Lines 12 through 18 define a drag item provider for a bit-map control.
+ 
+    .
+    .
+    .
+    19 void main()
+    20   {
+    21   IFrameWindow
+    22     frame ( "C Set ++ Direct Manipulation - Sample 1" );
+    23
+    24   IBitmapControl         // Create an empty bitmap control.
+    25     bmpControl ( 0, &frame, &frame );
+    26
+    27   IDMTargetHandler       // Create target handler
+    28     handler;             //for the bitmap control.
+    29
+    30   handler.handleEventsFor( &bmpControl );//Add target handler on bitmap cont rol.
+    31
+    32   ABitmapProvider        // Create a bit-map drag item provider.
+    33     itemProvider;
+    34
+    35  bmpControl.setDragItemProvider( &itemProvider );//Attach provider to the bitmap control.
+    36
+    37  IDMTargetRenderer       //Create renderer to render items.
+    38     renderer;
+    39
+    40   renderer.setSupportedRMFs( "<DRM_OS2FILE,DRF_UNKNOWN>" )//Set up renderer
+    41           .setSupportedTypes( "Bitmap" );                 //to accept .bmp files.
+    42
+    43   handler.addRenderer( &renderer );
+    44
+    45   bmpControl.setText( "Drop .bmp files here." );//Set the bit-map control
+    46   frame.setClient( &bmpControl )                //as the frame's client and
+    47        .showModally();                          //display the frame.
+    48   }
+    49
+    50 ABitmapItem :: ABitmapItem ( const IDMItemHandle &item )
+    51   : IDMItem( *item )
+    52   {
+    53   }
+    54
+    55 Boolean ABitmapItem :: setTargetContents ( const IString &, IWindow *target )
+    56   {
+    57   IBitmapControl
+    58    *bmpControl = (IBitmapControl*)target;
+    59   struct stat buf;
+    60   FILE *fileptr;
+    61   IString fname = this->containerName() + "\\" + this->sourceName();
+    62   stat( fname, &buf);
+    63   int j;
+    64   char * buffer = new char[(buf.st_size)];
+    65   fileptr = fopen( fname,"rb");
+    66   fread(buffer,sizeof(char),buf.st_size,fileptr);
+    67   PBITMAPFILEHEADER2 filehead;            //set up the structures
+    68   PBITMAPINFO2 bmpinfo;
+    69   PBYTE data;
+    70   if (((PBITMAPARRAYFILEHEADER2)buffer)->usType == BFT_BITMAPARRAY)
+    71      filehead=(PBITMAPFILEHEADER2)((PBYTE)buffer+ sizeof(BITMAPARRAYFILEHEADE
+    72                        - sizeof(BITMAPFILEHEADER2));
+    73   else filehead=(PBITMAPFILEHEADER2)buffer;
+    74   if (filehead->usType != BFT_BMAP)
+    75   {
+    76      //ERROR not a bitmap
+    77      bmpControl -> setText( "That wasn't a bitmap!" );
+    78   } else {
+    79   bmpinfo=(PBITMAPINFO2)((PBYTE)filehead+sizeof(BITMAPFILEHEADER2)-sizeof(BITINFOHEADER2));
+    80   data=(PBYTE)buffer+filehead->offBits;
+    81
+    82   //Create the PM BITMAP
+    83   HPS hps = bmpControl -> presSpace();
+    84   HBITMAP hbm=GpiCreateBitmap(hps,(PBITMAPINFOHEADER2)bmpinfo,CBM_INIT,data,bnfo);
+    85   bmpControl -> releasePresSpace(hps);
+    86   bmpControl -> setBitmap( IBitmapHandle( hbm ) );
+    87   }
+    88  return true;
+    89  }
+    90
+    91 IDMItemHandle ABitmapProvider :: provideTargetItemFor ( const IDMItemHandle i )
+    92   {
+    93   return new ABitmapItem ( item );
+    94   }
+ 
+  Lines 27 and 28 construct a target handler without passing a parameter.  The
+  constructor for IDMTargetHandler accepts one parameter, a pointer to an
+  instance of IEntryField or IMultiLineEdit.  The default is NULL.
+ 
+  Line 30 attaches the target handler created on line 27 to BMPCONTROL.
+ 
+  Lines 32 and 33 construct a drag item provider named ITEMPROVIDER.
+ 
+  Line 35 attaches the drag item provider to BMPCONTROL.
+ 
+  Line 37 constructs a renderer.
+ 
+  Lines 40 and 41 define the rendering mechanisms and formats (RMFs) and the
+  type that the renderer will support.
+ 
+  Line 43 attaches the renderer to the target handler.
+ 
+  Lines 50 through 73 define the setTargetContents member function for the
+  ABitmapItem class that was declared in the .hpp file.
+ 
+  Lines 74 through 89 create the bit map and place it in the window.
+ 
+  Lines 91 through 94 use provideTargetItemFor to replace the generic IDMItem
+  that was created during the initial target enter event (IDMTargetEnterEvent)
+  with the derived class.  This function is called when a drop event
+  (IDMTargetDropEvent) occurs on a target window.
+ 
+ 
+

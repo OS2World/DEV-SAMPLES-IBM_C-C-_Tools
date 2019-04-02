@@ -1,0 +1,1070 @@
+IBM Class Libraries: User Interface
+Interface changes from 3/08/93 beta driver
+
+Insert/
+Delete     Inserted and deleted lines
+flag   Class ::  Access :   Member/enum
+---- ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+---100---+---110---+---120---+---130
+ I - I0String:: public: I0String & change ( const IString & aPattern , const IString & aReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = UINT_MAX )
+ D - I0String:: public: I0String & change ( const IString & aPattern , const IString & aReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = 0 )
+
+ I - I0String:: public: I0String & change ( const IString & aPattern , const char * pReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = UINT_MAX )
+ D - I0String:: public: I0String & change ( const IString & aPattern , const char * pReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = 0 )
+
+ I - I0String:: public: I0String & change ( const char * pPattern , const IString & aReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = UINT_MAX )
+ D - I0String:: public: I0String & change ( const char * pPattern , const IString & aReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = 0 )
+
+ I - I0String:: public: I0String & change ( const char * pPattern , const char * pReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = UINT_MAX )
+ D - I0String:: public: I0String & change ( const char * pPattern , const char * pReplacement , unsigned startPos = 0 ,
+                  unsigned numChanges = 0 )
+ -------------------------------------------------------------------------------
+ D - IBitmapControl:: public: static const Style initialSize
+ D - IBitmapControl:: public: IBitmapControl & setBitmap ( ISystemBitmapHandle handle )
+ D - IBitmapControl:: public: enum ColorArea { foreground , border }
+ D - IBitmapControl:: public: IColor color ( ColorArea value ) const
+ D - IBitmapControl:: public: IBitmapControl & setColor ( ColorArea value , const IColor & color )
+
+ I - IBitmapControl:: private: typedef IStaticText Inherited
+ D - IBitmapControl:: private: typedef IControl Inherited
+
+ I - IBitmapControl:: public: IBitmapControl ( unsigned long id , IWindow * parent , IWindow * owner ,
+                        IBitmapHandle bitmapId = IBitmapHandle ( ) , const IRectangle & initial = IRectangle ( ) ,
+                        const Style & style = defaultStyle ( ) )
+ I - IBitmapControl:: public: virtual ~IBitmapControl ( )
+ I - IBitmapControl:: public: static const Style useBitmapSize
+ -------------------------------------------------------------------------------
+ I - ICommandEvent:: public: enum Source { pushButton , menu , accelerator , unknown }
+ D - ICommandEvent:: public: enum Source { pushButton , menu , accelerator , fontDialog , fileDialog , printDialog , colorDialog ,
+                       unknown }
+ -------------------------------------------------------------------------------
+ I - IContainerControl:: public: IContainerColumn * columnUnderPoint ( const IPoint & point ) const
+ I - IContainerControl:: public: IRectangle convertToWorkspace ( const IRectangle & windowRectangle , Boolean rightWindow = false ) const
+ I - IContainerControl:: public: virtual IContainerObject * objectAt ( const IContainerControl :: TextCursor & cursor ) const
+ I - IContainerControl:: public: virtual IContainerControl & removeObjectAt ( IContainerControl :: TextCursor & cursor )
+ -------------------------------------------------------------------------------
+ D - ICnrDropCatcher:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - ICnrInitDragEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - ICnrDragOverAfterEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - ICnrDropOnEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - ICnrDrgSrcHandler:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - ICnrDrgTgtHandler:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - ICnrDragItem:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IBeginDragEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragOperationEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragOverEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDropOnEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IRenderEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IRenderCompleteEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IEndConversationEvent:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IUDragDropRender:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IFileRenderer:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragImage:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragItem:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IRenderer:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragSourceHandler:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - ITypesString:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IRMFsString:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragTargetHandler:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDxferAssoc:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragTextItem:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragWinTextItem:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragEFItem:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDropTextCatcher:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDropWinTextCatcher:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDragDropEFHandler:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IDropCatcher:: *** deleted class ***
+ -------------------------------------------------------------------------------
+ D - IComboBox:: public: IComboBox & selectAll ( )
+ D - IComboBox:: public: IComboBox & setHeight ( long newHeight )
+
+ I - IComboBox:: public: unsigned long addAscending ( const char * text )
+ D - IComboBox:: public: unsigned long addAsc ( const char * text )
+
+ I - IComboBox:: public: unsigned long addDescending ( const char * text )
+ D - IComboBox:: public: unsigned long addDesc ( const char * text )
+
+ I - IComboBox:: public: IComboBox & removeAt ( Cursor & cursor )
+ D - IComboBox:: public: IComboBox & removeAt ( const Cursor & cursor )
+
+ I - IComboBox:: public: unsigned long selection ( )
+ -------------------------------------------------------------------------------
+ I - IDDEClientConversation:: public: virtual IDDEClientConversation & endHotLink ( const char * item , const char * format = "#1" )
+ D - IDDEClientConversation:: public: virtual IDDEClientConversation & endHotLink ( const char * item , const char * format )
+
+ I - IDDEClientConversation:: public: IDDEClientConversation ( Boolean useEventThread = true )
+ D - IDDEClientConversation:: public: IDDEClientConversation ( )
+
+ I - IDDEClientConversation:: public: IDDEClientConversation ( const char * applicationName , const char * topicName ,
+                                Boolean useEventThread = true )
+ D - IDDEClientConversation:: public: IDDEClientConversation ( const char * applicationName , const char * topicName )
+
+ I - IDDEClientConversation:: public: virtual void conversationEnded ( IDDEClientEndEvent & event )
+ D - IDDEClientConversation:: public: virtual void conversationClosed ( IDDEClientEndEvent & event )
+ -------------------------------------------------------------------------------
+ I - IDDETopicServer:: public: IDDETopicServer ( const char * applicationName , const char * supportedTopic , IFrameWindow * owner = 0 )
+ D - IDDETopicServer:: public: IDDETopicServer ( const char * applicationName , const char * supportedTopic )
+
+ I - IDDETopicServer:: public: IDDETopicServer ( const char * applicationName , const char * supportedTopic , IFrameWindow * owner = 0 ,
+                         Boolean useEventThread = true )
+ D - IDDETopicServer:: public: IDDETopicServer ( const char * applicationName , const char * supportedTopic , IFrameWindow * owner = 0 )
+
+ I - IDDETopicServer:: public: virtual void conversationEnded ( unsigned long conversationId , IDDEEndEvent & event )
+ D - IDDETopicServer:: public: virtual void conversationClosed ( unsigned long conversationId , IDDEEndEvent & event )
+
+ I - IDDETopicServer:: public: virtual void hotLinkEnded ( unsigned long conversationId , IDDEEvent & event )
+ D - IDDETopicServer:: public: virtual void endHotLink ( unsigned long conversationId , IDDEEvent & event )
+ -------------------------------------------------------------------------------
+ D - IEvent:: public: IEvent ( const IEvent & evtCopy )
+
+ I - *** See IWindow, IWindowHandle, IMessageQueueHandle ***
+ D - IEvent:: public: enum BroadcastAttr { Descendants , Frames , FrameDescendants }
+ D - IEvent:: public: IEventResult postToQueue ( )
+ D - IEvent:: public: IEventResult postToQueues ( )
+ D - IEvent:: public: IEventResult postToWindow ( )
+ D - IEvent:: public: IEventResult postToWindows ( BroadcastAttr b = Descendants )
+ D - IEvent:: public: IEventResult sendToWindow ( )
+ D - IEvent:: public: IEventResult sendToWindows ( BroadcastAttr b = Descendants )
+ -------------------------------------------------------------------------------
+ D - IEventData:: public: IEventData ( const IEventData & eventDataCopy )
+
+ I - IEventData:: public: IEventData ( unsigned short lowValue , unsigned short hiValue )
+ D - IEventData:: public: IEventData ( short int si1 , short int si2 )
+
+ I - IEventData:: public: IEventData ( unsigned short lowValue , char lowByte , char hiByte )
+ D - IEventData:: public: IEventData ( short int i , char ch1 , char ch2 )
+
+ I - IEventData:: public: IEventData ( int value )
+ I - IEventData:: public: unsigned long asUnsignedLong ( ) const
+ I - IEventData:: public: char highHighByte ( ) const
+ I - IEventData:: public: char highLowByte ( ) const
+ I - IEventData:: public: unsigned short highNumber ( ) const
+ I - IEventData:: public: char lowHighByte ( ) const
+ I - IEventData:: public: char lowLowByte ( ) const
+ I - IEventData:: public: unsigned short lowNumber ( ) const
+ -------------------------------------------------------------------------------
+ I - IAccessError:: public: IAccessError ( const char * errorText , unsigned long errorId , Severity severity = IException::unrecoverable )
+ D - IAccessError:: public: IAccessError ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IAssertionFailure:: public: IAssertionFailure ( const char * errorText , unsigned long errorId ,
+                           Severity severity = IException::unrecoverable )
+ D - IAssertionFailure:: public: IAssertionFailure ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IDeviceError:: public: IDeviceError ( const char * errorText , unsigned long errorId , Severity severity = IException::unrecoverable )
+ D - IDeviceError:: public: IDeviceError ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IInvalidParameter:: public: IInvalidParameter ( const char * errorText , unsigned long errorId ,
+                           Severity severity = IException::unrecoverable )
+ D - IInvalidParameter:: public: IInvalidParameter ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IInvalidRequest:: public: IInvalidRequest ( const char * errorText , unsigned long errorId ,
+                         Severity severity = IException::unrecoverable )
+ D - IInvalidRequest:: public: IInvalidRequest ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IResourceExhausted:: public: IResourceExhausted ( const char * errorText , unsigned long errorId ,
+                            Severity severity = IException::unrecoverable )
+ D - IResourceExhausted:: public: IResourceExhausted ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IOutOfMemory:: public: IOutOfMemory ( const char * errorText , unsigned long errorId , Severity severity = IException::unrecoverable )
+ D - IOutOfMemory:: public: IOutOfMemory ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IOutOfSystemResource:: public: IOutOfSystemResource ( const char * errorText , unsigned long errorId ,
+                              Severity severity = IException::unrecoverable )
+ D - IOutOfSystemResource:: public: IOutOfSystemResource ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ I - IOutOfWindowResource:: public: IOutOfWindowResource ( const char * errorText , unsigned long errorId ,
+                              Severity severity = IException::unrecoverable )
+ D - IOutOfWindowResource:: public: IOutOfWindowResource ( const char * errorText , unsigned long errorId , int severity = 0 )
+ -------------------------------------------------------------------------------
+ D - IFillBox:: *** class merged with IStaticText ***
+ -------------------------------------------------------------------------------
+ I - IFrameWindow:: public: virtual IFrameWindow & addExtension ( IWindow * aWindow , Location aLocation , unsigned long widthOrHeight ,
+                      SeparatorType separator = thinLine )
+ D - IFrameWindow:: public: virtual IFrameWindow & addExtension ( IControl * aControl , Location aLocation , unsigned long widthOrHeight ,
+                      SeparatorType separator = thinLine )
+
+ I - IFrameWindow:: public: virtual IFrameWindow & addExtension ( IWindow * aWindow , Location aLocation , int widthOrHeight ,
+                      SeparatorType separator = thinLine )
+ D - IFrameWindow:: public: virtual IFrameWindow & addExtension ( IControl * aControl , Location aLocation , int widthOrHeight ,
+                      SeparatorType separator = thinLine )
+
+ I - IFrameWindow:: public: virtual IFrameWindow & addExtension ( IWindow * aWindow , Location aLocation , double percentage ,
+                      SeparatorType separator = thinLine )
+ D - IFrameWindow:: public: virtual IFrameWindow & addExtension ( IControl * aControl , Location aLocation , double percentage ,
+                      SeparatorType separator = thinLine )
+
+ I - IFrameWindow:: public: virtual IFrameWindow & dismiss ( unsigned long result = 0 )
+ D - IFrameWindow:: public: virtual IFrameWindow & dismiss ( unsigned long result )
+
+ I - IFrameWindow:: public: static const Style horizontalScroll
+ D - IFrameWindow:: public: static const Style horizontalScrollBar
+
+ I - IFrameWindow:: public: virtual IFrameWindow & removeExtension ( IWindow * aWindow )
+ D - IFrameWindow:: public: virtual IFrameWindow & removeExtension ( IControl * aControl )
+
+ I - IFrameWindow:: public: virtual IFrameWindow & setExtensionSize ( IWindow * aWindow , int widthOrHeight )
+ D - IFrameWindow:: public: virtual IFrameWindow & setExtensionSize ( IControl * aControl , int widthOrHeight )
+
+ I - IFrameWindow:: public: virtual IFrameWindow & setExtensionSize ( IWindow * aWindow , double widthOrHeight )
+ D - IFrameWindow:: public: virtual IFrameWindow & setExtensionSize ( IControl * aControl , double widthOrHeight )
+
+ I - IFrameWindow:: public: static const Style verticalScroll
+ D - IFrameWindow:: public: static const Style verticalScrollBar
+
+ I - IFrameWindow:: protected: unsigned findExtension ( IWindow * window )
+ D - IFrameWindow:: protected: unsigned findExtension ( IControl * control )
+
+ I - IFrameWindow:: public: enum ColorArea { background , foreground , shadow , disableBackground , frameBorder }
+ I - IFrameWindow:: public: IColor color ( ColorArea value ) const
+ I - IFrameWindow:: public: IFrameWindow & setColor ( ColorArea value , const IColor & color )
+ -------------------------------------------------------------------------------
+ I - IFrameExtension:: public: IFrameExtension ( IWindow * window , IFrameWindow :: Location location , unsigned long widthOrHeight ,
+                         IFrameWindow :: SeparatorType separator )
+ D - IFrameExtension:: public: IFrameExtension ( IControl * control , IFrameWindow :: Location location , unsigned long widthOrHeight ,
+                         IFrameWindow :: SeparatorType separator )
+
+ I - IFrameExtension:: public: IFrameExtension ( IWindow * window , IFrameWindow :: Location location , double percentage ,
+                         IFrameWindow :: SeparatorType separator )
+ D - IFrameExtension:: public: IFrameExtension ( IControl * control , IFrameWindow :: Location location , double percentage ,
+                         IFrameWindow :: SeparatorType separator )
+
+ I - IFrameExtension:: public: IWindow * control ( ) const
+ D - IFrameExtension:: public: IControl * control ( ) const
+ -------------------------------------------------------------------------------
+ I - IWindowHandle:: public: enum BroadcastTo { descendants , frames , frameDescendants }
+
+ I - IWindowHandle:: public: void postEvent ( unsigned long eventId , const IEventParameter1 & parm1 = 0ul ,
+                       const IEventParameter2 & parm2 = 0ul ) const
+ I - IWindowHandle:: public: void postEvents ( unsigned long eventId , const IEventParameter1 & parm1 = 0ul ,
+                       const IEventParameter2 & parm2 = 0ul , BroadcastTo value = descendants ) const
+ I - IWindowHandle:: public: IEventResult sendEvent ( unsigned long eventId , const IEventParameter1 & parm1 = 0ul ,
+                       const IEventParameter2 & parm2 = 0ul ) const
+ I - IWindowHandle:: public: void sendEvents ( unsigned long eventId , const IEventParameter1 & parm1 = 0ul ,
+                       const IEventParameter2 & parm2 = 0ul , BroadcastTo value = descendants ) const
+ -------------------------------------------------------------------------------
+ I - IMessageQueueHandle:: public: void postEvent ( unsigned long eventId , const IEventParameter1 & parm1 = 0ul ,
+                             const IEventParameter2 & parm2 = 0ul ) const
+ I - IMessageQueueHandle:: public: static void postEvent ( const IMessageQueueHandle & handle , unsigned long eventId ,
+                             const IEventParameter1 & parm1 = 0ul , const IEventParameter2 & parm2 = 0ul )
+ I - IMessageQueueHandle:: public: static void postEvents ( unsigned long eventId , const IEventParameter1 & parm1 = 0ul ,
+                             const IEventParameter2 & parm2 = 0ul )
+ -------------------------------------------------------------------------------
+ D - IIconControl:: public: IIconControl & setIcon ( ISystemPointerHandle handle )
+ D - IIconControl:: public: enum ColorParam { border }
+ D - IIconControl:: public: IColor color ( ColorParam value ) const
+ D - IIconControl:: public: IIconControl & setColor ( ColorParam value , const IColor & color )
+
+ I - IIconControl:: public: IIconControl ( unsigned long Id , IWindow * parent , IWindow * owner , IPointerHandle iconId ,
+                      const IRectangle & initial = IRectangle ( ) , const Style & style = defaultStyle ( ) )
+ I - IIconControl:: public: virtual ~IIconControl ( )
+ I - IIconControl:: public: static const Style useIconSize
+ I - IIconControl:: private: typedef IBitmapControl Inherited
+ D - IIconControl:: private: typedef IControl Inherited
+ -------------------------------------------------------------------------------
+ I - IKeyboardEvent:: public: enum VirtualKey { esc , tab , backTab , space , backSpace , enter , newLine , shift , ctrl , altGraf ,
+                        insert , deleteKey , home , end , pageUp , pageDown , left , right , up , down , capsLock , numLock , scrollLock ,
+                        pause , sysReq , breakKey , f2 , f3 , f4 , f5 , f6 , f7 , f8 , f9 , f11 , f12 , f13 , f14 ,
+                        f15 , f16 , f17, f18 , f19 , f20 , f21 , f22 , f23 , f24 , button1 , button2 , button3 , endDrag , firstDBCS ,
+                        lastDBCS , firstUser , lastUser , other }
+ D - IKeyboardEvent:: public: enum VirtualKey { esc , tab , backTab , space , backSpace , enter , newLine , shift , ctrl , alt, altGraf ,
+                        insert , deleteKey , home , end , pageUp , pageDown , left , right , up , down , capsLock , numLock , scrollLock ,
+                        pause , sysRq , breakKey , printScreen, f1, f2 , f3 , f4 , f5 , f6 , f7 , f8 , f9 , f10, f11 , f12 , f13 , f14 ,
+                        f15 , f16 , f17, f18 , f19 , f20 , f21 , f22 , f23 , f24 , button1 , button2 , button3 , endDrag , dbcsFirst ,
+                        dbcsLast , userFirst , userLast }
+
+ I - IKeyboardEvent:: public: Boolean isAltDown ( ) const
+ I - IKeyboardEvent:: public: Boolean isCharacter ( ) const
+ I - IKeyboardEvent:: public: Boolean isComposite ( ) const
+ I - IKeyboardEvent:: public: Boolean isCtrlDown ( ) const
+ I - IKeyboardEvent:: public: Boolean isForComposite ( ) const
+ I - IKeyboardEvent:: public: Boolean isInvalidComposite ( ) const
+ I - IKeyboardEvent:: public: Boolean isRepeat ( ) const
+ I - IKeyboardEvent:: public: Boolean isScanCode ( ) const
+ I - IKeyboardEvent:: public: Boolean isShiftDown ( ) const
+ I - IKeyboardEvent:: public: Boolean isUncombined ( ) const
+ I - IKeyboardEvent:: public: Boolean isUpTransition ( ) const
+ I - IKeyboardEvent:: public: Boolean isVirtual ( ) const
+ D - IKeyboardEvent:: public: enum KeyCode { charCodeIsValid , scanCodeIsValid , virtualKeyIsValid , keyTransitionIsUp , keyIsRepeated ,
+                        charCodeIsDeadKey , charCodeIsComposite , charCodeIsInvalidComposite , loneKeyAction , shiftKeyIsDown , altKeyIsDown ,
+                        ctrlKeyIsDown }
+ D - IKeyboardEvent:: public: Boolean isKeyCode ( KeyCode kc ) const
+
+ I - IKeyboardEvent:: public: char character ( ) const
+ D - IKeyboardEvent:: public: char charCode ( ) const
+
+ I - IKeyboardEvent:: public: IString mixedCharacter ( ) const
+ D - IKeyboardEvent:: public: IString mixedChar ( ) const
+
+ I - IKeyboardEvent:: public: unsigned long scanCode ( ) const
+ D - IKeyboardEvent:: public: unsigned char scanCode ( ) const
+
+ I - IKeyboardEvent:: protected: static const unsigned long ulAltFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulCharacterFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulCompositeFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulCtrlFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulForCompositeFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulInvalidCompositeFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulRepeatFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulScanCodeFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulShiftFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulUncombinedFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulUpTransitionFlag
+ I - IKeyboardEvent:: protected: static const unsigned long ulVirtualFlag
+ -------------------------------------------------------------------------------
+ D - IKeyboardHandler:: public: IKeyboardHandler ( )
+
+ I - IKeyboardHandler:: protected: virtual Boolean key ( IKeyboardEvent & keyevt )
+ D - IKeyboardHandler:: protected: virtual Boolean keyPress ( IKeyboardEvent & keyevt ) = 0
+
+ I - IKeyboardHandler:: protected: virtual Boolean characterKeyPress ( IKeyboardEvent & keyevt )
+ I - IKeyboardHandler:: protected: virtual Boolean scanCodeKeyPress ( IKeyboardEvent & keyevt )
+ I - IKeyboardHandler:: protected: virtual Boolean virtualKeyPress ( IKeyboardEvent & keyevt )
+ -------------------------------------------------------------------------------
+ I - IListBox:: public: unsigned long addAscending ( const char * text )
+ D - IListBox:: public: unsigned long addAsc ( const char * text )
+
+ I - IListBox:: public: unsigned long addDescending ( const char * text )
+ D - IListBox:: public: unsigned long addDesc ( const char * text )
+
+ I - IListBox:: public: IListBox & disableDrawItem ( )
+ D - IListBox:: public: IListBox & disableOwnerDraw ( )
+
+ I - IListBox:: public: static const Style drawItem
+ D - IListBox:: public: static const Style ownerDraw
+
+ I - IListBox:: public: IListBox & enableDrawItem ( Boolean enable = true )
+ D - IListBox:: public: IListBox & enableOwnerDraw ( Boolean turnOn = true )
+
+ I - IListBox:: public: Boolean isDrawItem ( )
+ D - IListBox:: public: Boolean isOwnerDraw ( )
+
+ I - IListBox:: public: unsigned long selection ( )
+ -------------------------------------------------------------------------------
+ I - IMultiCellCanvas:: protected: virtual IMultiCellCanvas & layout ( )
+ D - IMultiCellCanvas:: public: virtual IMultiCellCanvas & layout ( )
+
+ I - IMultiCellCanvas:: public: IColor color ( ) const
+ I - IMultiCellCanvas:: public: IMultiCellCanvas & setColor ( const IColor & color )
+ -------------------------------------------------------------------------------
+ D - IMenu:: public: virtual IWindowHandle handle ( ) const
+ D - IMenu:: protected: IMenu & setHandle ( const IWindowHandle & newHandle , Boolean startHandlingEvents = tru
+
+ I - IMenu:: public: IMenu ( )
+ D - IMenu:: protected: IMenu ( )
+
+ I - IMenu:: public: virtual ~IMenu ( ) = 0
+ D - IMenu:: protected: virtual ~IMenu ( ) = 0
+
+ I - IMenu:: public: IMenu & addItem ( IMenuItem & menuItem , unsigned long intoSubMenuId = 0 , Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addItem ( IMenuItem & menuItem , unsigned long intoSubMenuId , const IResourceId & submenuResId )
+ D - IMenu:: public: virtual IMenu & addItem ( const IMenuItem & newItem )
+ D - IMenu:: public: virtual IMenu & addItem ( const IMenuItem & newItem , unsigned long submenuId )
+
+ I - IMenu:: public: IMenu & addSeparator ( unsigned long newItemId , unsigned long intoSubMenuId )
+ I - IMenu:: public: virtual IMenu & addSeparator ( unsigned long intoSubMenuId = 0 )
+ D - IMenu:: public: virtual IMenu & addSeparator ( unsigned long newItemId = 0 )
+ D - IMenu:: public: virtual IMenu & addSeparator ( unsigned long newItemId , unsigned long submenuId )
+
+ I - IMenu:: public: IMenuItem menuItem ( unsigned long itemId ) const
+ D - IMenu:: public: IMenuItem * menuItem ( unsigned long itemId )
+
+ I - IMenu:: public: enum ColorArea { foreground , disabledForeground , highlightForeground , border }
+ I - IMenu:: public: IMenu & add ( IMenuItem & menuItem , Cursor & cursor , Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addAsFirst ( IMenuItem & menuItem , Cursor & cursor , Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addAsLast ( IMenuItem & menuItem , Cursor & cursor , Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addAsNext ( IMenuItem & menuItem , Cursor & cursor , Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addBitmap ( const IResourceId & newItemBitmapResId , unsigned long intoSubMenuId = 0 ,
+               Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addBitmap ( const IResourceId & newItemBitmapResId , unsigned long intoSubMenuId ,
+               const IResourceId & submenuResId )
+ I - IMenu:: public: IMenu & addBitmap ( unsigned long newItemId , const IBitmapHandle & itemBitmap , unsigned long intoSubMenuId = 0 ,
+               Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addBitmap ( unsigned long newItemId , const IBitmapHandle & itemBitmap , unsigned long intoSubMenuId ,
+               const IResourceId & submenuResId )
+ I - IMenu:: public: IMenu & addText ( unsigned long newItemId , const char * itemText , unsigned long intoSubMenuId = 0 ,
+               Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addText ( unsigned long newItemId , const char * itemText , unsigned long intoSubMenuId ,
+               const IResourceId & submenuResId )
+ I - IMenu:: public: IMenu & addText ( const IResourceId & newItemTextResId , unsigned long intoSubMenuId = 0 , Boolean makeSubMenu = false )
+ I - IMenu:: public: IMenu & addText ( const IResourceId & newItemTextResId , unsigned long intoSubMenuId , const IResourceId & submenuResId )
+ I - IMenu:: public: static const Style classDefaultStyle
+ I - IMenu:: public: IColor color ( ColorArea value ) const
+ I - IMenu:: public: static const Style conditionalCascade
+ I - IMenu:: public: Cursor cursor ( unsigned long itemId , unsigned long inSubMenuId = 0 ) const
+ I - IMenu:: public: static Style defaultStyle ( )
+ I - IMenu:: public: IMenu & deleteAt ( Cursor & cursor )
+ I - IMenu:: public: IMenuItem elementAt ( const Cursor & cursor ) const
+ I - IMenu:: public: static const Style horizontalBar
+ I - IMenu:: public: Boolean isConditionalCascade ( ) const
+ I - IMenu:: public: Boolean isHorizontalBar ( ) const
+ I - IMenu:: public: Boolean isVerticalFlip ( ) const
+ I - IMenu:: public: static const Style noStyle
+ I - IMenu:: public: unsigned long numberOfItems ( unsigned long forSubMenuId = 0 )
+ I - IMenu:: public: virtual IMenu & removeSubMenu ( unsigned long itemWithSubMenuId )
+ I - IMenu:: public: IMenu & removeSubMenu ( Cursor & cursor )
+ I - IMenu:: public: virtual IMenu & setBitmap ( unsigned long menuItemId , const IResourceId & newBitmapResId )
+ I - IMenu:: public: virtual IMenu & setBitmap ( unsigned long menuItemId , const IBitmapHandle & bitmapHandle )
+ I - IMenu:: public: IMenu & setColor ( ColorArea value , const IColor & color )
+ I - IMenu:: public: IMenu & setConditionalCascade ( Boolean conditional = true )
+ I - IMenu:: public: static void setDefaultStyle ( const Style & aStyle )
+ I - IMenu:: public: IMenu & setHorizontalBar ( Boolean horizontal = true )
+ I - IMenu:: public: virtual IMenu & setItem ( const IMenuItem & menuItem )
+ I - IMenu:: public: virtual IMenu & setText ( unsigned long menuItemId , const char * newText )
+ I - IMenu:: public: virtual IMenu & setText ( unsigned long menuItemId , const IResourceId & newTextResId )
+ I - IMenu:: public: IMenu & setVerticalFlip ( Boolean flip = true )
+ I - IMenu:: public: static const Style verticalFlip
+ -------------------------------------------------------------------------------
+ I - IMenu::Cursor:: public: Cursor ( const IMenu & menu , unsigned long forSubMenuId = 0 )
+ I - IMenu::Cursor:: public: void invalidate ( )
+ I - IMenu::Cursor:: public: Boolean isValid ( ) const
+ I - IMenu::Cursor:: public: Boolean setToFirst ( )
+ I - IMenu::Cursor:: public: Boolean setToLast ( )
+ I - IMenu::Cursor:: public: Boolean setToNext ( )
+ I - IMenu::Cursor:: public: Boolean setToPrevious ( )
+ -------------------------------------------------------------------------------
+ D - IMenuBar:: public: static const unsigned long frameMenuId
+ D - IMenuBar:: public: Boolean isVerticalFlip ( ) const
+ D - IMenuBar:: public: unsigned long menuResourceId ( ) const
+ D - IMenuBar:: public: static const Style noStyle
+ D - IMenuBar:: public: IMenuBar & setVerticalFlip ( Boolean flip = true )
+ D - IMenuBar:: public: static const Style verticalFlip
+
+ I - IMenuBar:: public: IMenuBar ( IFrameWindow * owner , const Style & style = defaultStyle ( ) )
+ D - IMenuBar:: public: IMenuBar ( IFrameWindow * owner , unsigned long menuWindowId = frameMenuId , const Style & style = noStyle )
+
+ I - IMenuBar:: public: IMenuBar ( const IResourceId & menuResId , IFrameWindow * owner )
+ D - IMenuBar:: public: IMenuBar ( const IResourceId & menuResId , IWindow * owner )
+
+ I - IMenuBar:: public: unsigned long menuResourceId ( ) const
+ D - IMenuBar:: public: unsigned long currentMenuId ( ) const
+
+ I - IMenuBar:: public: IMenuBar ( IFrameWindow * owner )
+ I - IMenuBar:: public: IMenuBar ( IFrameWindow * owner , unsigned long menuWindowId = frameMenuId , const Style & style = noStyle )
+ I - IMenuBar:: public: static const Style classDefaultStyle
+ I - IMenuBar:: public: static Style defaultStyle ( )
+ I - IMenuBar:: public: static const unsigned long frameMenuId
+ I - IMenuBar:: public: Boolean isOnTitleBar ( ) const
+ I - IMenuBar:: public: Boolean isVerticalFlip ( ) const
+ I - IMenuBar:: public: static const Style noStyle
+ I - IMenuBar:: public: static const Style onTitleBar
+ I - IMenuBar:: public: static void setDefaultStyle ( const Style & aStyle )
+ I - IMenuBar:: public: IMenuBar & setOnTitleBar ( Boolean titleMenu = true )
+ I - IMenuBar:: public: IMenuBar & setVerticalFlip ( Boolean flip = true )
+ I - IMenuBar:: public: static const Style verticalFlip
+ I - IMenuBar:: private: IMenuBar ( const IMenuBar & )
+ I - IMenuBar:: private: IMenuBar & operator = ( const IMenuBar & )
+ -------------------------------------------------------------------------------
+ I - IMenuEvent:: public: IMenuItem menuItem ( ) const
+ -------------------------------------------------------------------------------
+ I - IMenuHandler:: protected: virtual void hideSourceEmphasis ( const IMenuEvent & mnEvt )
+ I - IMenuHandler:: protected: virtual void showSourceEmphasis ( const IMenuEvent & mnEvt )
+ -------------------------------------------------------------------------------
+ D - IMenuItem:: public: IMenuItem ( const IMenu * const pmnOwner , TypeSpecial type , unsigned long itemId = 0 ,
+                   Style style = defaultStyle ( ) , Attribute attribute = defaultAttribute ( ) )
+ D - IMenuItem:: public: ~IMenuItem ( )
+ D - IMenuItem:: public: IMenuItem & setSubMenu ( const IResourceId & MenuResId )
+ D - IMenuItem:: private: IMenuItem & operator = ( const IMenuItem & )
+
+ I - IMenuItem:: public: IMenuItem ( unsigned long itemId , const Style & style = defaultStyle ( ) ,
+                   const Attribute & attribute = defaultAttribute ( ) )
+ D - IMenuItem:: public: IMenuItem ( IMenu * owner , unsigned long itemId , const Style & style = separator ,
+                   const Attribute & attribute = defaultAttribute ( ) )
+
+ I - IMenuItem:: public: IMenuItem ( unsigned long itemId , const IBitmapHandle & bitmap , const Style & style = defaultStyle ( ) ,
+                   const Attribute & attribute = defaultAttribute ( ) )
+ D - IMenuItem:: public: IMenuItem ( IMenu * owner , unsigned long itemId , const IBitmapHandle & bitmap , const Style & style = bitmapItem ,
+                   const Attribute & attribute = defaultAttribute ( ) )
+
+ I - IMenuItem:: public: IMenuItem ( unsigned long itemId , const char * string , const Style & style = defaultStyle ( ) ,
+                   const Attribute & attribute = defaultAttribute ( ) )
+ D - IMenuItem:: public: IMenuItem ( IMenu * owner , unsigned long itemId , const char * string , const Style & style = textItem ,
+                   const Attribute & attribute = defaultAttribute ( ) )
+
+ I - IMenuItem:: public: IMenuItem ( unsigned long itemId , const IResourceId & resId , const Style & style = defaultStyle ( ) ,
+                   const Attribute & attribute = defaultAttribute ( ) )
+ D - IMenuItem:: public: IMenuItem ( const IMenu * const pmnOwner , unsigned long itemId , const IResourceId & resId ,
+                   Type type , Style style = defaultStyle ( ) , Attribute attribute = defaultAttribute ( ) )
+
+ I - IMenuItem:: public: unsigned long attribute ( ) const
+ D - IMenuItem:: protected: unsigned long attribute ( )
+
+ I - IMenuItem:: public: IBitmapHandle bitMap ( ) const
+ D - IMenuItem:: public: IBitmapHandle bitMap ( )
+
+ I - IMenuItem:: public: static const Style bitmapItem
+ I - IMenuItem:: public: static const Style textItem
+ D - IMenuItem:: public: enum Type { textItem , bitmapItem }
+
+ I - IMenuItem:: public: static const Style drawItem
+ I - IMenuItem:: public: static const Style separator
+ D - IMenuItem:: public: enum TypeSpecial { separator , drawItem }
+
+ I - IMenuItem:: public: Boolean isChecked ( ) const
+ D - IMenuItem:: public: Boolean isChecked ( )
+
+ I - IMenuItem:: public: Boolean isDisabled ( ) const
+ D - IMenuItem:: public: Boolean isDisabled ( )
+
+ I - IMenuItem:: public: Boolean isFramed ( ) const
+ D - IMenuItem:: public: Boolean isFramed ( )
+
+ I - IMenuItem:: public: Boolean isHighlighted ( ) const
+ D - IMenuItem:: public: Boolean isHighlighted ( )
+
+ I - IMenuItem:: public: Boolean isNoDismiss ( ) const
+ D - IMenuItem:: public: Boolean isNoDismiss ( )
+
+ I - IMenuItem:: public: Boolean isSelectable ( ) const
+ D - IMenuItem:: public: Boolean isSelectableItem ( )
+
+ I - IMenuItem:: public: enum Layout { normalLayout , wrapLayout , wrapAndSeparatorLayout , wrapAndButtonLayout }
+ I - IMenuItem:: public: Layout layoutType ( ) const
+ D - IMenuItem:: public: Boolean isNormalLayout ( )
+ D - IMenuItem:: public: Boolean isWrap ( )
+ D - IMenuItem:: public: Boolean isWrapAndButton ( )
+ D - IMenuItem:: public: Boolean isWrapAndSeparator ( )
+
+ I - IMenuItem:: public: enum CommandType { command , systemCommand , helpCommand }
+ I - IMenuItem:: public: CommandType commandType ( ) const
+ D - IMenuItem:: public: Boolean isNormalCommand ( )
+ D - IMenuItem:: public: Boolean isPostHelp ( )
+ D - IMenuItem:: public: Boolean isPostSystemCommand ( )
+
+ I - IMenuItem:: public: IMenuItem & setAttribute ( unsigned long newAttribute )
+ D - IMenuItem:: protected: IMenuItem & setAttribute ( unsigned long newAttribute )
+
+ I - IMenuItem:: public: IMenuItem & setCommand ( CommandType aValue )
+ D - IMenuItem:: public: IMenuItem & setNormalCommand ( )
+ D - IMenuItem:: public: IMenuItem & setPostHelp ( )
+ D - IMenuItem:: public: IMenuItem & setPostSystemCommand ( )
+
+ I - IMenuItem:: public: IMenuItem & setDrawItem ( Boolean drawItem = true )
+ D - IMenuItem:: public: IMenuItem & setDrawItem ( )
+
+ I - IMenuItem:: public: IMenuItem & setLayout ( Layout aValue )
+ D - IMenuItem:: public: IMenuItem & setNormalLayout ( )
+ D - IMenuItem:: public: IMenuItem & setWrap ( )
+ D - IMenuItem:: public: IMenuItem & setWrapAndButton ( )
+ D - IMenuItem:: public: IMenuItem & setWrapAndSeparator ( )
+
+ I - IMenuItem:: public: IMenuItem & setSelectable ( Boolean selectable = true )
+ D - IMenuItem:: public: IMenuItem & setSelectableItem ( Boolean = true )
+
+ I - IMenuItem:: public: IMenuItem & setStyle ( unsigned long newStyle )
+ D - IMenuItem:: protected: IMenuItem & setStyle ( unsigned long newStyle )
+
+ I - IMenuItem:: public: unsigned long style ( ) const
+ D - IMenuItem:: protected: unsigned long style ( )
+
+ I - IMenuItem:: public: IString text ( ) const
+ D - IMenuItem:: public: IString text ( )
+
+ I - IMenuItem:: public: static long atEnd ( )
+ I - IMenuItem:: public: long index ( ) const
+ I - IMenuItem:: public: Boolean isDrawItem ( ) const
+ I - IMenuItem:: public: static const Attribute noAttribute
+ I - IMenuItem:: public: static const Style noStyle
+ I - IMenuItem:: public: IMenuItem & operator = ( const IMenuItem & aMenuItem )
+ I - IMenuItem:: public: IMenuItem & setIndex ( long index = atEnd ( ) )
+ I - IMenuItem:: public: IWindowHandle subMenuHandle ( ) const
+
+ I - IMenuItem:: public: IMenuItem & setSubMenu ( const IWindowHandle & menuHandle )
+ -------------------------------------------------------------------------------
+ I - IMultiLineEdit:: public: static const Style horizontalScroll
+ D - IMultiLineEdit:: public: static const Style horzScroll
+
+ I - IMultiLineEdit:: public: unsigned long selectedTextLength ( ) const
+ D - IMultiLineEdit:: public: unsigned long selectedTextLen ( ) const
+
+ I - IMultiLineEdit:: public: static const Style verticalScroll
+ D - IMultiLineEdit:: public: static const Style vertScroll
+ -------------------------------------------------------------------------------
+ I - IMessageBox:: public: enum Response { enter , ok , cancel , abort , retry , ignore , yes , no , unknown }
+ D - IMessageBox:: public: enum Response { enter , ok , cancel , abort , retry , ignore , yes , no }
+
+ I - IMessageBox:: public: IMessageBox :: Response show ( const IErrorInfo & aError , unsigned long aHelpId = 0 )
+ -------------------------------------------------------------------------------
+ I - IPageHandle:: public: IPageHandle ( Value pageId = 0 )
+ -------------------------------------------------------------------------------
+ I - INotebook:: public: virtual IPageHandle addFirstPage ( const PageSettings & pageInfo , IWindow * window = 0 )
+ D - INotebook:: public: virtual INotebook & addFirstPage ( Page & page )
+
+ I - INotebook:: public: virtual IPageHandle addLastPage ( const PageSettings & pageInfo , IWindow * window = 0 )
+ D - INotebook:: public: virtual INotebook & addLastPage ( Page & page )
+
+ I - INotebook:: public: virtual IPageHandle addPageAfter ( const PageSettings & pageToAdd , const IPageHandle & referencePage ,
+                   IWindow * window = 0 )
+ D - INotebook:: public: virtual INotebook & addPageAfter ( Page & pageToAdd , const Page & page )
+
+ I - INotebook:: public: virtual IPageHandle addPageAfter ( const PageSettings & pageInfo , const Cursor & cursor , IWindow * window = 0 )
+ D - INotebook:: public: virtual INotebook & addPageAfter ( Page & page , const Cursor & cursor )
+
+ I - INotebook:: public: virtual IPageHandle addPageBefore ( const PageSettings & pageInfoToAdd , const IPageHandle & referencePage ,
+                   IWindow * window = 0 )
+ D - INotebook:: public: virtual INotebook & addPageBefore ( Page & pageToAdd , const Page & page )
+
+ I - INotebook:: public: virtual IPageHandle addPageBefore ( const PageSettings & pageInfo , const Cursor & cursor , IWindow * window = 0 )
+ D - INotebook:: public: virtual INotebook & addPageBefore ( Page & page , const Cursor & cursor )
+
+ I - INotebook:: public: virtual IPageHandle firstPage ( ) const
+ D - INotebook:: public: virtual Page * firstPage ( ) const
+
+ I - INotebook:: public: virtual IPageHandle lastPage ( ) const
+ D - INotebook:: public: virtual Page * lastPage ( ) const
+
+ I - INotebook:: public: virtual IPageHandle nextPage ( const IPageHandle & referencePage ) const
+ D - INotebook:: public: virtual Page * nextPage ( const Page & page ) const
+ D - INotebook:: public: virtual Page * nextPage ( const Cursor & cursor ) const
+
+ I - INotebook:: public: PageSettings pageSettings ( const IPageHandle & page )
+
+ I - INotebook:: public: virtual unsigned long pagesToEnd ( const IPageHandle & page ) const
+ D - INotebook:: public: virtual Page * pageWithId ( unsigned long id ) const
+ D - INotebook:: public: virtual unsigned long pagesToEnd ( const Page & page ) const
+
+ I - INotebook:: public: virtual unsigned long pagesToMajorTab ( const IPageHandle & page ) const
+ D - INotebook:: public: virtual unsigned long pagesToMajorTab ( const Page & page ) const
+
+ I - INotebook:: public: virtual unsigned long pagesToMinorTab ( const IPageHandle & page ) const
+ D - INotebook:: public: virtual unsigned long pagesToMinorTab ( const Page & page ) const
+
+ I - INotebook:: public: virtual IPageHandle previousPage ( const IPageHandle & referencePage ) const
+ D - INotebook:: public: virtual Page * previousPage ( const Page & page ) const
+ D - INotebook:: public: virtual Page * previousPage ( const Cursor & cursor ) const
+
+ I - INotebook:: public: virtual INotebook & removePage ( const IPageHandle & page )
+ D - INotebook:: public: virtual INotebook & removePage ( Page & page )
+
+ I - INotebook:: public: virtual INotebook & removeTabSection ( const IPageHandle & page )
+ D - INotebook:: public: virtual INotebook & removeTabSection ( const Page & page )
+
+ I - INotebook:: public: virtual IPageHandle topPage ( ) const
+ D - INotebook:: public: virtual Page * topPage ( ) const
+
+ I - INotebook:: public: virtual INotebook & turnToPage ( const IPageHandle & page )
+ D - INotebook:: public: virtual INotebook & turnToPage ( const Page & page )
+
+ I - INotebook:: public: static const Style majorTabsBottom
+ D - INotebook:: public: static const Style majorTabBottom
+
+ I - INotebook:: public: static const Style majorTabsLeft
+ D - INotebook:: public: static const Style majorTabLeft
+
+ I - INotebook:: public: static const Style majorTabsRight
+ D - INotebook:: public: static const Style majorTabRight
+
+ I - INotebook:: public: static const Style majorTabsTop
+ D - INotebook:: public: static const Style majorTabTop
+
+ I - INotebook:: public: static void setDefaultStyle ( const Style & style )
+ D - INotebook:: public: static void setDefaultStyle ( Style style )
+
+ I - INotebook:: public: virtual INotebook & setStatusText ( const IPageHandle & referencePage , const char * statusText )
+ I - INotebook:: public: virtual INotebook & setStatusText ( const IPageHandle & referencePage , const IResourceId & resourceId )
+ I - INotebook:: public: virtual INotebook & setTabBitmap ( const IPageHandle & referencePage , const IBitmapHandle & bitmap )
+ I - INotebook:: public: virtual INotebook & setTabBitmap ( const IPageHandle & referencePage , const IResourceId & resourceId )
+ I - INotebook:: public: virtual INotebook & setTabText ( const IPageHandle & referencePage , const char * tabText )
+ I - INotebook:: public: virtual INotebook & setTabText ( const IPageHandle & referencePage , const IResourceId & resourceId )
+ I - INotebook:: public: virtual INotebook & setUserData ( const IPageHandle & referencePage , unsigned long userData )
+ I - INotebook:: public: virtual INotebook & setWindow ( const Cursor & cursor , IWindow * window = 0 )
+ I - INotebook:: public: virtual INotebook & setWindow ( const IPageHandle & referencePage , IWindow * window = 0 )
+ I - INotebook:: protected: static Style currentDefaultStyle
+ -------------------------------------------------------------------------------
+ D - INotebook::Page:: public: virtual unsigned long pageId ( ) const
+ D - INotebook::Page:: public: INotebook :: Page & setWindow ( const IWindow * window , Boolean destroy = true )
+ D - INotebook::Page:: public: IWindow * window ( ) const
+
+ I - INotebook::PageSettings:: public: PageSettings ( )
+ I - INotebook::PageSettings:: public: PageSettings ( Attribute attribute )
+ I - INotebook::PageSettings:: public: PageSettings ( const char * tabText , const char * statusText = 0 ,
+                                 Attribute pageAttribute = noAttribute )
+ I - INotebook::PageSettings:: public: PageSettings ( const IBitmapHandle & tabBitmap , const char * statusText = 0 ,
+                                 Attribute pageAttribute = noAttribute )
+ D - INotebook::Page:: public: Page ( Attribute attribute = noAttribute )
+ D - INotebook::Page:: public: Page ( IWindow * window , Attribute attribute = noAttribute )
+
+ I - INotebook::PageSettings:: public: virtual ~PageSettings ( )
+ D - INotebook::Page:: public: virtual ~Page ( )
+
+ I - INotebook::PageSettings:: public: static const Attribute autoPageSize
+ D - INotebook::Page:: public: static const Attribute autoPageSize
+
+ I - INotebook::PageSettings:: public: Boolean isAutoSize ( ) const
+ D - INotebook::Page:: public: Boolean isAutoSize ( ) const
+
+ I - INotebook::PageSettings:: public: Boolean isMajorTab ( ) const
+ D - INotebook::Page:: public: Boolean isMajorTab ( ) const
+
+ I - INotebook::PageSettings:: public: Boolean isMinorTab ( ) const
+ D - INotebook::Page:: public: Boolean isMinorTab ( ) const
+
+ I - INotebook::PageSettings:: public: Boolean isStatusTextOn ( ) const
+ D - INotebook::Page:: public: Boolean isStatusTextOn ( ) const
+
+ I - INotebook::PageSettings:: public: static const Attribute majorTab
+ D - INotebook::Page:: public: static const Attribute majorTab
+
+ I - INotebook::PageSettings:: public: static const Attribute minorTab
+ D - INotebook::Page:: public: static const Attribute minorTab
+
+ I - INotebook::PageSettings:: public: static const Attribute noAttribute
+ D - INotebook::Page:: public: static const Attribute noAttribute
+
+ I - INotebook::PageSettings:: public: virtual INotebook :: PageSettings & setStatusText ( const char * statusText )
+ D - INotebook::Page:: public: virtual INotebook :: Page & setStatusText ( const char * statusText )
+
+ I - INotebook::PageSettings:: public: virtual INotebook :: PageSettings & setStatusText ( const IResourceId & resourceId )
+ D - INotebook::Page:: public: virtual INotebook :: Page & setStatusText ( const IResourceId & resourceId )
+
+ I - INotebook::PageSettings:: public: virtual INotebook :: PageSettings & setTabBitmap ( const IBitmapHandle & bitmap )
+ D - INotebook::Page:: public: virtual INotebook :: Page & setTabBitmap ( IBitmapHandle bitmap )
+
+ I - INotebook::PageSettings:: public: virtual INotebook :: PageSettings & setTabBitmap ( const IResourceId & resourceId )
+ D - INotebook::Page:: public: virtual INotebook :: Page & setTabBitmap ( const IResourceId & resourceId )
+
+ I - INotebook::PageSettings:: public: virtual INotebook :: PageSettings & setTabText ( const char * tabText )
+ D - INotebook::Page:: public: virtual INotebook :: Page & setTabText ( const char * tabText )
+
+ I - INotebook::PageSettings:: public: virtual INotebook :: PageSettings & setTabText ( const IResourceId & resourceId )
+ D - INotebook::Page:: public: virtual INotebook :: Page & setTabText ( const IResourceId & resourceId )
+
+ I - INotebook::PageSettings:: public: virtual INotebook :: PageSettings & setUserData ( unsigned long userData )
+ D - INotebook::Page:: public: virtual INotebook :: Page & setUserData ( unsigned long userData )
+
+ I - INotebook::PageSettings:: public: virtual IString statusText ( ) const
+ D - INotebook::Page:: public: virtual IString statusText ( ) const
+
+ I - INotebook::PageSettings:: public: static const Attribute statusTextOn
+ D - INotebook::Page:: public: static const Attribute statusTextOn
+
+ I - INotebook::PageSettings:: public: virtual IBitmapHandle tabBitmap ( ) const
+ D - INotebook::Page:: public: virtual IBitmapHandle tabBitmap ( ) const
+
+ D - INotebook::Page:: public: virtual IString tabText ( ) const
+ I - INotebook::PageSettings:: public: virtual IString tabText ( ) const
+
+ I - INotebook::PageSettings:: public: virtual unsigned long userData ( ) const
+ D - INotebook::Page:: public: virtual unsigned long userData ( ) const
+ -------------------------------------------------------------------------------
+ I - INotebook::Cursor:: public: virtual IPageHandle current ( ) const
+ D - INotebook::Cursor:: public: virtual INotebook :: Page * current ( ) const
+
+ I - INotebook::Cursor:: public: virtual IPageHandle first ( )
+ D - INotebook::Cursor:: public: virtual INotebook :: Page * first ( )
+
+ I - INotebook::Cursor:: public: virtual IPageHandle last ( )
+ D - INotebook::Cursor:: public: virtual INotebook :: Page * last ( )
+
+ I - INotebook::Cursor:: public: virtual IPageHandle next ( )
+ D - INotebook::Cursor:: public: virtual INotebook :: Page * next ( )
+
+ I - INotebook::Cursor:: public: virtual IPageHandle previous ( )
+ D - INotebook::Cursor:: public: virtual INotebook :: Page * previous ( )
+
+ I - INotebook::Cursor:: public: void setCurrent ( const IPageHandle & current )
+ D - INotebook::Cursor:: public: void setCurrent ( const INotebook :: Page Current )
+ -------------------------------------------------------------------------------
+ D - IObjectWindow:: public: IWindow :: addHandler
+ D - IObjectWindow:: public: IWindow :: removeHandler
+ -------------------------------------------------------------------------------
+ I - IPageEvent:: public: virtual INotebook * notebook ( ) const
+ D - IPageEvent:: public: virtual IWindowHandle notebookHandle ( ) const
+
+ I - IPageEvent:: public: virtual IPageHandle pageHandle ( ) const
+ D - IPageEvent:: public: virtual INotebook :: Page * page ( ) const
+ D - IPageEvent:: public: virtual unsigned long pageId ( ) const
+ -------------------------------------------------------------------------------
+ I - IPageRemoveEvent:: public: virtual INotebook * notebook ( ) const
+ D - IPageRemoveEvent:: public: virtual IWindowHandle notebookHandle ( ) const
+
+ I - IPageRemoveEvent:: private: virtual IPageHandle pageHandle ( ) const
+ D - IPageRemoveEvent:: public: virtual INotebook :: Page * page ( ) const
+ D - IPageRemoveEvent:: public: virtual unsigned long pageId ( ) const
+ -------------------------------------------------------------------------------
+ I - IPageHelpEvent:: public: virtual INotebook * notebook ( ) const
+ D - IPageHelpEvent:: public: virtual IWindowHandle notebookHandle ( ) const
+
+ I - IPageHelpEvent:: public: virtual IPageHandle pageHandle ( ) const
+ D - IPageHelpEvent:: public: virtual unsigned long pageId ( ) const
+ -------------------------------------------------------------------------------
+ I - IPageSelectEvent:: public: virtual INotebook * notebook ( ) const
+ D - IPageSelectEvent:: public: virtual IWindowHandle notebookHandle ( ) const
+
+ I - IPageSelectEvent:: public: virtual IPageHandle pageHandle ( ) const
+ D - IPageSelectEvent:: public: virtual unsigned long pageId ( ) const
+
+ I - IPageSelectEvent:: public: IPageHandle previousSelectedPageHandle ( ) const
+ D - IPageSelectEvent:: public: INotebook :: Page * prevSelectedPage ( ) const
+ D - IPageSelectEvent:: public: unsigned long prevSelectedPageId ( ) const
+ -------------------------------------------------------------------------------
+ D - IPaintEvent:: public: IPaintEvent ( IPaintEvent & evt )
+ D - IPaintEvent:: public: static const IGUIColor defaultBgndColor ( )
+ D - IPaintEvent:: public: static const IGUIColor defaultTextColor ( )
+ D - IPaintEvent:: public: static const IRectangle exposedRect ( )
+
+ I - IPaintEvent:: public: IPaintEvent & clearBackground ( const IColor & background = IGUIColor ( IGUIColor :: desktopBgnd ) )
+ I - IPaintEvent:: public: IPaintEvent & clearBackground ( const IRectangle & fillRectangle ,
+                     const IColor & background = IGUIColor ( IGUIColor : : desktopBgnd ) )
+ D - IPaintEvent:: public: void clearBackground ( const IRectangle & fillRect = exposedRect ( ) ,
+                     const IColor & bgndColor = defaultBgndColor ( ) )
+
+ I - IPaintEvent:: public: IPaintEvent & drawText ( const char * text , const IPoint & atPoint ,
+                     const IColor & textColor = IGUIColor ( IGUIColor :: windowStaticText ) )
+ D - IPaintEvent:: public: void drawText ( const char * text , const IPoint & atPos , const IColor & textColor = defaultTextColor ( ) )
+ -------------------------------------------------------------------------------
+ D - IPopUpMenu:: public: IPopUpMenu & show ( Boolean showMenu = true )
+ D - IPopUpMenu:: public: Boolean isAutoDelete ( ) const
+
+ I - IPopUpMenu:: public: IPopUpMenu ( IWindow * owner , unsigned long menuWindowId , const Style & style = defaultStyle ( ) )
+ D - IPopUpMenu:: public: IPopUpMenu ( unsigned long menuWindowId , IWindow * owner , const IMenu :: Style & style ,
+                    Boolean autoDelete = true )
+
+ I - IPopUpMenu:: public: IPopUpMenu ( const IResourceId & menuResId , IWindow * owner )
+ D - IPopUpMenu:: public: IPopUpMenu ( const IResourceId & menuResId , IWindow * owner , Boolean autoDelete = true )
+
+ I - IPopUpMenu:: private: IPopUpMenu ( const IPopUpMenu & )
+ I - IPopUpMenu:: private: IPopUpMenu & operator = ( const IPopUpMenu & )
+ -------------------------------------------------------------------------------
+ I - IProfile::Cursor:: public: Boolean isValid ( Boolean checkFile = false ) const
+ D - IProfile::Cursor:: public: Boolean isValid ( ) const
+ -------------------------------------------------------------------------------
+ D - IProgressIndicator:: public: ISize armSize ( ) const
+ D - IProgressIndicator:: public: IProgressIndicator & setArmSize ( const ISize & sliderArm )
+
+ I - IProgressIndicator:: public: IProgressIndicator & setTickText ( unsigned long tickNumber , const IResource
+ -------------------------------------------------------------------------------
+ I - ISlider:: public: ISize armSize ( ) const
+ I - ISlider:: public: ISlider & setArmSize ( const ISize & sliderArm )
+ -------------------------------------------------------------------------------
+ D - ISpinButton:: public: enum Attribute { validate , noUpdate , always }
+ D - ISpinButton:: public: ISpinButton & overrideLimits ( long lowLimit , long highLimit )
+ D - ISpinButton:: public: ISpinButton & setIndex ( unsigned long index )
+ D - ISpinButton:: public: ISpinButton & setTextLimit ( unsigned long limit )
+
+ I - ISpinButton:: public: Boolean add ( const char * string , Cursor & cursor , Boolean immediateUpdate = false )
+ I - ISpinButton:: public: ISpinButton & addAsFirst ( const char * string , Cursor & object , Boolean immediateUpdate = false )
+ I - ISpinButton:: public: ISpinButton & addAsLast ( const char * string , Cursor & object , Boolean immediateUpdate = false )
+ I - ISpinButton:: public: ISpinButton & addAsNext ( const char * string , Cursor & cursor , Boolean immediateUpdate = false )
+ I - ISpinButton:: public: ISpinButton & addOrReplaceElements ( const Cursor & object )
+ D - ISpinButton:: public: ISpinButton & setArray ( char * * array , unsigned long count )
+
+ I - ISpinButton:: public: static const Style allCharacters
+ D - ISpinButton:: public: static const Style allChar
+
+ I - ISpinButton:: public: long currentNumber ( ) const
+ D - ISpinButton:: public: long value ( ) const
+
+ I - ISpinButton:: public: IString currentText ( ) const
+ D - ISpinButton:: public: IString text ( Attribute attribute ) const
+
+ I - ISpinButton:: public: IRange range ( ) const
+ D - ISpinButton:: public: long lowerLimit ( ) const
+ D - ISpinButton:: public: long upperLimit ( ) const
+
+ I - ISpinButton:: public: ISpinButton & replaceAt ( const char * newString , Cursor & cursor , Boolean immediateUpdate = false )
+ D - ISpinButton:: public: ISpinButton & replaceAt ( const Cursor & cursor , const char * newString , Boolean immediateUpdate = false )
+
+ I - ISpinButton:: public: ISpinButton & setCurrent ( long aValue )
+ I - ISpinButton:: public: ISpinButton & setCurrent ( const Cursor & cursor )
+ D - ISpinButton:: public: ISpinButton & setValue ( long value )
+
+ I - ISpinButton:: public: ISpinButton & setLimit ( unsigned long aNumber )
+ D - ISpinButton:: public: ISpinButton & setLimits ( long lowLimit , long highLimit )
+
+ I - ISpinButton:: public: ISpinButton & setMaster ( )
+ I - ISpinButton:: public: ISpinButton & setServantMaster ( const ISpinButton & master )
+ D - ISpinButton:: public: ISpinButton & setMaster ( const ISpinButton * spnb )
+
+ I - ISpinButton:: public: virtual ~ISpinButton ( )
+ I - ISpinButton:: public: enum Alignment { left , right , center }
+ I - ISpinButton:: public: enum ColorArea { foreground , disabledForeground , highlightForeground , border }
+ I - ISpinButton:: public: enum Type { alphanumeric , numeric }
+ I - ISpinButton:: public: Alignment alignment ( ) const
+ I - ISpinButton:: public: IColor color ( ColorArea value ) const
+ I - ISpinButton:: public: ISpinButton & disableBorder ( )
+ I - ISpinButton:: public: IString elementAt ( const Cursor & cursor ) const
+ I - ISpinButton:: public: ISpinButton & enableBorder ( Boolean enable = true )
+ I - ISpinButton:: public: static const Style fastSpin
+ I - ISpinButton:: public: Type inputTypeAllowed ( ) const
+ I - ISpinButton:: public: Boolean isBorder ( ) const
+ I - ISpinButton:: public: Boolean isFastSpin ( ) const
+ I - ISpinButton:: public: Boolean isMaster ( ) const
+ I - ISpinButton:: public: Boolean isReadOnly ( ) const
+ I - ISpinButton:: public: Boolean isServant ( ) const
+ I - ISpinButton:: public: Boolean isValid ( Boolean updateContent = false ) const
+ I - ISpinButton:: public: static const Style noBorder
+ I - ISpinButton:: public: static const Style numericOnly
+ I - ISpinButton:: public: static const Style readOnly
+ I - ISpinButton:: public: ISpinButton & removeAll ( )
+ I - ISpinButton:: public: ISpinButton & removeAt ( Cursor & cursor , Boolean immediateUpdate = false )
+ I - ISpinButton:: public: ISpinButton & replaceAt ( const Cursor & cursor , const char * newString , Boolean immediateUpdate = false )
+ I - ISpinButton:: public: ISpinButton & setAlignment ( Alignment aValue = left )
+ I - ISpinButton:: public: ISpinButton & setColor ( ColorArea value , const IColor & color )
+ I - ISpinButton:: public: ISpinButton & setFastSpin ( Boolean fast = true )
+ I - ISpinButton:: public: ISpinButton & setInputType ( Type aValue = alphanumeric )
+ I - ISpinButton:: public: ISpinButton & setRange ( const IRange & aNewRange , Boolean override = false )
+ I - ISpinButton:: public: ISpinButton & setReadOnly ( Boolean readOnly = true )
+ I - ISpinButton:: public: ISpinButton & spinTo ( long aValue )
+ I - ISpinButton:: public: ISpinButton & spinTo ( const Cursor & cursor )
+ I - ISpinButton:: protected: virtual ISize calcMinimumSize ( ) const
+ -------------------------------------------------------------------------------
+ I - ISpinButton::Cursor:: public: Cursor ( const ISpinButton & spinButton )
+ I - ISpinButton::Cursor:: public: void invalidate ( )
+ I - ISpinButton::Cursor:: public: Boolean isValid ( ) const
+ I - ISpinButton::Cursor:: public: Boolean setToFirst ( )
+ I - ISpinButton::Cursor:: public: Boolean setToLast ( )
+ I - ISpinButton::Cursor:: public: Boolean setToNext ( )
+ I - ISpinButton::Cursor:: public: Boolean setToPrevious ( )
+ -------------------------------------------------------------------------------
+ I - ISplitCanvas:: public: enum SplitBarArea { splitBarEdge , splitBarMiddle }
+ I - ISplitCanvas:: public: IColor color ( SplitBarArea value ) const
+ I - ISplitCanvas:: public: ISplitCanvas & setColor ( SplitBarArea value , const IColor & color )
+ I - ISplitCanvas:: public: ISplitCanvas & setSplitBarThickness ( SplitBarArea value , unsigned long thickness )
+ I - ISplitCanvas:: public: unsigned long splitBarThickness ( SplitBarArea value )
+ -------------------------------------------------------------------------------
+ I - IStaticText:: public: virtual ~IStaticText ( )
+
+ I - IStaticText:: public: enum ColorArea { foreground , background , fill }
+ D - IStaticText:: public: enum ColorParam { foreground , border }
+
+ I - IStaticText:: public: IStaticText & disableFillBackground ( )
+ I - IStaticText:: public: IStaticText & enableFillBackground ( Boolean enable = true )
+ I - IStaticText:: public: static const Style fillBackground
+ I - IStaticText:: public: Boolean hasFillBackground ( )
+ -------------------------------------------------------------------------------
+ I - IString:: public: static IString change ( const IString & aString , const IString & inputString , const IString & outputString ,
+                 unsigned startPos = 1 , unsigned numChanges = UINT_MAX )
+ D - IString:: public: static IString change ( const IString & aString , const IString & inputString , const IString & outputString ,
+                 unsigned startPos = 1 , unsigned numChanges = 0 )
+
+ I - IString:: public: static IString change ( const IString & aString , const IString & inputString , const char * pOutputString ,
+                 unsigned startPos = 1 , unsigned numChanges = UINT_MAX )
+ D - IString:: public: static IString change ( const IString & aString , const IString & inputString , const char * pOutputString ,
+                 unsigned startPos = 1 , unsigned numChanges = 0 )
+
+ I - IString:: public: static IString change ( const IString & aString , const char * pInputString , const IString & outputString ,
+                 unsigned startPos = 1 , unsigned numChanges = UINT_MAX )
+ D - IString:: public: static IString change ( const IString & aString , const char * pInputString , const IString & outputString ,
+                 unsigned startPos = 1 , unsigned numChanges = 0 )
+
+ I - IString:: public: static IString change ( const IString & aString , const char * pInputString , const char * pOutputString ,
+                 unsigned startPos = 1 , unsigned numChanges = UINT_MAX )
+ D - IString:: public: static IString change ( const IString & aString , const char * pInputString , const char * pOutputString ,
+                 unsigned startPos = 1 , unsigned numChanges = 0 )
+ -------------------------------------------------------------------------------
+ I - ISubMenu:: public: ISubMenu & add ( IMenuItem & menuItem , Cursor & cursor )
+ I - ISubMenu:: public: ISubMenu & addAsFirst ( IMenuItem & menuItem , Cursor & cursor )
+ I - ISubMenu:: public: ISubMenu & addAsLast ( IMenuItem & menuItem , Cursor & cursor )
+ I - ISubMenu:: public: ISubMenu & addAsNext ( IMenuItem & menuItem , Cursor & cursor )
+ I - ISubMenu:: public: ISubMenu & addBitmap ( const IResourceId & newItemBitmapResId )
+ I - ISubMenu:: public: ISubMenu & addBitmap ( unsigned long newItemId , const IBitmapHandle & itemBitmap )
+ I - ISubMenu:: public: ISubMenu & addItem ( IMenuItem & menuItem )
+ I - ISubMenu:: public: ISubMenu & addText ( unsigned long newItemId , const char * itemText )
+ I - ISubMenu:: public: ISubMenu & addText ( const IResourceId & newItemTextResId )
+ D - ISubMenu:: public: virtual ISubMenu & addItem ( const IMenuItem & mniNewItem )
+
+ I - ISubMenu:: public: Cursor cursor ( unsigned long itemId ) const
+ I - ISubMenu:: public: ISubMenu & deleteAt ( Cursor & cursor )
+ I - ISubMenu:: public: virtual IWindowHandle handle ( ) const
+ I - ISubMenu:: public: virtual ISubMenu & removeSubMenu ( unsigned long itemWithSubmenuId )
+ I - ISubMenu:: public: ISubMenu & removeSubMenu ( Cursor & cursor )
+ I - ISubMenu:: public: virtual ISubMenu & setBitmap ( unsigned long menuItemId , const IResourceId & newBitmapResId )
+ I - ISubMenu:: public: virtual ISubMenu & setBitmap ( unsigned long menuItemId , const IBitmapHandle & bitmapHandle )
+ I - ISubMenu:: public: virtual ISubMenu & setItem ( const IMenuItem & menuItem )
+ I - ISubMenu:: public: virtual ISubMenu & setText ( unsigned long menuItemId , const char * newText )
+ I - ISubMenu:: public: virtual ISubMenu & setText ( unsigned long menuItemId , const IResourceId & newTextResId )
+ -------------------------------------------------------------------------------
+ I - ISubMenu::Cursor:: public: Cursor ( const ISubMenu & menu )
+ I - ISubMenu::Cursor:: public: void invalidate ( )
+ I - ISubMenu::Cursor:: public: Boolean isValid ( ) const
+ I - ISubMenu::Cursor:: public: Boolean setToFirst ( )
+ I - ISubMenu::Cursor:: public: Boolean setToLast ( )
+ I - ISubMenu::Cursor:: public: Boolean setToNext ( )
+ I - ISubMenu::Cursor:: public: Boolean setToPrevious ( )
+ -------------------------------------------------------------------------------
+ I - ISystemMenu:: public: ISystemMenu ( const IFrameWindow * owner )
+ D - ISystemMenu:: public: ISystemMenu ( const IWindow * const owner )
+
+ I - ISystemMenu:: public: virtual ~ISystemMenu ( )
+ I - ISystemMenu:: private: ISystemMenu ( const ISystemMenu & )
+ I - ISystemMenu:: private: ISystemMenu & operator = ( const ISystemMenu & )
+ -------------------------------------------------------------------------------
+ I - IThread:: public: virtual Boolean isStarted ( ) const
+ D - IThread:: protected: virtual Boolean isStarted ( ) const
+
+ I - IThread:: public: virtual IThread & stopProcessingMsgs ( )
+ -------------------------------------------------------------------------------
+ D - ITitle:: public: virtual ~ITitle ( )
+
+ I - ITitle:: public: enum ColorArea { active , inactive , activeTextForeground , inactiveTextForeground , border }
+ I - ITitle:: public: IColor color ( ColorArea value ) const
+ I - ITitle:: public: ITitle & setColor ( ColorArea value , const IColor & color )
+ -------------------------------------------------------------------------------
+ D - IViewPort:: protected: virtual Boolean lineDown ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean lineLeft ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean lineRight ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean lineUp ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean pageDown ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean pageLeft ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean pageRight ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean pageUp ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean scrollBoxTrack ( IScrollEvent & evt )
+ D - IViewPort:: protected: virtual Boolean windowResize ( IResizeEvent & evt )
+
+ I - IViewPort:: public: enum ColorArea { fillBackground }
+ I - IViewPort:: public: static const Style alwaysHorizontalScrollBar
+ I - IViewPort:: public: static const Style alwaysVerticalScrollBar
+ I - IViewPort:: public: static const Style asNeededHorizontalScrollBar
+ I - IViewPort:: public: static const Style asNeededVerticalScrollBar
+ I - IViewPort:: public: IColor color ( ColorArea area ) const
+ I - IViewPort:: public: static const Style noHorizontalScrollBar
+ I - IViewPort:: public: static const Style noVerticalScrollBar
+ I - IViewPort:: public: virtual IViewPort & scrollViewHorizontallyTo ( unsigned long leftOffset )
+ I - IViewPort:: public: virtual IViewPort & scrollViewVerticallyTo ( unsigned long topOffset )
+ I - IViewPort:: public: IViewPort & setColor ( ColorArea area , const IColor & color )
+ I - IViewPort:: public: virtual IViewPort & setViewWindowSize ( const ISize & siz )
+ I - IViewPort:: public: virtual IRectangle viewWindowDrawRectangle ( ) const
+ I - IViewPort:: public: virtual ISize viewWindowSize ( ) const
+ I - IViewPort:: protected: IViewPort & setTopLeftViewPoint ( const IPoint & topLeft )
+ I - IViewPort:: protected: IPoint topLeftViewPoint ( ) const
+ I - IViewPort:: private: IViewPort ( const IViewPort & )
+ I - IViewPort:: private: IViewPort & operator = ( const IViewPort & )
+ -------------------------------------------------------------------------------
+ I - IWindow:: protected: IColor color ( unsigned long colorArea , const IColor & defaultColor ) const
+ -------------------------------------------------------------------------------

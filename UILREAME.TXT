@@ -1,0 +1,185 @@
+ ==============================================================================
+ Input for combined readme for the Maxine external beta
+   from the IBM C/C++ Tools: User Interface Class Library
+ ==============================================================================
+
+
+ NEW FEATURES
+ _____________
+
+ USER INTERFACE CLASS LIBRARY:
+
+ Note: A detailed list of changes is provided in the file UILCHGS.LST.
+
+ 1. Obsolete classes
+
+    a) Drag-drop
+
+       Drag-drop and container drag-drop classes have been removed.  They
+       are currently being redesigned to allow for greater portability in
+       the future.
+
+    b) IFillBox
+
+       This class has been merged with IStaticText.
+
+ 2. New Classes
+
+    a) IPageHandle
+
+       Class to represent a page in a notebook.  Generally this class can be
+       used similarly to the INotebook::Cursor class to identify a page.
+       However, only this class is returned to identify a page queried from
+       the notebook.  Specific information about a page can be obtained by
+       calling the INotebook::pageSettings function, passing it an
+       IPageHandle.
+
+    b) IMenu::Cursor
+
+       Cursor class to iterate items in a menu.
+
+    c) ISpinButton::Cursor
+
+       Cursor class to iterate entries in the spin button.
+
+    d) ISubMenu::Cursor
+
+       Cursor class to iterate submenu items.
+
+ 3. Interface Changes
+
+    a) Renaming
+
+       Several functions and styles have been renamed for consistency,
+       including the change of occurences of "ownerDraw" to "drawItem".
+
+    b) Corrections to the use of const
+
+       Several functions and function arguments were made constant, as
+       appropriate to their use.
+
+    c) IBitmapControl / IIconControl
+
+       These classes have been changed to inherit from IStaticText.  This
+       allows text to be displayed with either a color-filled background,
+       an icon as its background, or a bitmap as its background.  The text
+       can optionally be omitted.
+
+    d) Event posting and sending
+
+       The functionality for posting and sending events has been moved from
+       the IEvent class to IWindowHandle and IMessageQueueHandle.  This
+       functionality in IWindow remains as well.
+
+    e) IFrameWindow
+
+       Frame windows now allow an IWindow (previsously an IControl) to be
+       specified as a client area or an extension of the frame.
+
+    f) IKeyboardEvent
+
+       The isKeyCode() testing function has been replaced by individual
+       functions that test for specific information about the event (for
+       example, isScanCode()).
+
+    g) IKeyboardHandler
+
+       This class provides additional virtual functions to allow for easier
+       handling of specific types of keyboard events (for example, the
+       characterPress() function can be overridden to only process presses
+       of data keys).
+
+    h) INotebook::PageSettings
+
+       The PageSettings class replaces the Page class.  This settings class
+       is to be used to specify the characteristics of a page that is to be
+       added to a notebook, or to return the characteristics of an existing
+       page in the notebook.  Changes to an existing page in a notebook can
+       only be made by calling "set" functions of INotebook.
+
+    i) IMenu / IMenuItem
+
+       The IMenuItem class has been changed to act as a settings class,
+       similar to the INotebook::PageSettings class.  Thus the IMenuItem
+       class is to be used to specify the characteristics of an item that is
+       to be added to a menu, or to return the characteristics of a item in
+       the menu.  Changes to an existing item in a menu can only be made by
+       calling functions of IMenu.  Items in a menu are iterated using the
+       IMenu::Cursor class.
+
+    j) IMenuBar
+
+       Additional styles and style-related functions have been added to this
+       class.
+
+       Additionally, various IMenuItem enumerations have been replaced by
+       styles.
+
+ 4. Other Changes
+
+    a) Static library names
+
+       IBASE.LIB and IBASEAPP.LIB have been replaced by DDE4MUIB.LIB.
+       IBASECTL.LIB and ICNR.LIB have been replaced by DDE4MUIC.LIB.
+       IDDE.LIB has been replaced by DDE4MUID.LIB.
+       IDRAG.LIB has been removed (see information on drag-drop classes
+       above).
+
+
+ RELEASE CONSIDERATIONS:
+ _______________________
+
+ USER INTERFACE CLASS LIBRARY:
+
+ 1. Using the Class Library DLL
+
+    Any code using the User Interface class library that is built into a
+    .dll must link to the class library dynamic link library, DDE4MUII.DLL.
+    This means that the application .dll must be linked with the DDE4MUII.LIB
+    export library instead of the static object libraries (DDE4MUIB.LIB,
+    DDE4MUIC.LIB, and DDE4MUID.LIB).
+
+    Additionally, if the application .exe is linked to a .dll built with
+    DDE4MUII.LIB, the .exe also must be linked with DDE4MUII.LIB rather than
+    with the class library static object libraries.  In either case, an .exe
+    cannot be linked to both the class library .dll and any of its static
+    object libraries -- only one or the other can be used at any one time.
+
+    The above are permanent restrictions, and the results of doing otherwise
+    are unpredictable.
+
+ 2. Known problems
+
+    a) Colors and fonts
+
+       Setting colors and fonts does not work reliably.
+
+    b) IStaticText painting
+
+       Painting performance of IStaticText objects is poor because of
+       exceptions being internally thrown and caught.
+
+    c) DLL load time
+
+       This performance issue is being actively investigated.
+
+ 3. Future Changes
+
+    The class names, function names and function arguments are subject
+    to change.  Changes may result from IBM Quality and Usability reviews,
+    functional corrections, problem fixes, or feedback from beta users.
+
+
+ DOCUMENTATION
+ _____________
+
+ The following documentation is provided with this driver in .INF format.
+ Use the  view  command to read these files:
+
+   DDE4UIL.INF  - IBM C/C++ Tools: User Interface Class Library Reference
+
+ The following documentation is provided in LIST3820 format:
+
+   DDE4UIL    -  IBM C/C++ Tools: User Interface Class Library Reference
+   DDE4UILG   -  IBM C/C++ Tools: User Interface Class Library Guide
+

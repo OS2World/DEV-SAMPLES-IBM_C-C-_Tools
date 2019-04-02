@@ -1,0 +1,81 @@
+IBM C/C++ Tools: User Interface Class Library - Drag/Drop beta code
+International Business Machines Corporation/ /Armonk, New York 10504
+License Information
+
+Before using this package, you should carefully read the following terms
+and conditions. Using the package indicates your acceptance of the terms
+and conditions. If you do not agree to the terms and conditions, do not
+use this package.
+
+IBM DEVELOPER AGREEMENT FOR PRE-RELEASE OF THE BETA CODE OF THE
+DRAG/DROP FUNCTIONS OF C/C++ TOOLS: USER INTERFACE CLASS LIBRARY
+
+GRANT OF LICENSE:
+International Business Machines Corporation or the applicable IBM
+country organization (IBM) grants you a non-transferable license to use
+one copy of the supplied IBM C/C++ Tools: User Interface Class Library -
+Drag/Drop beta code (which is comprised of object code and
+documentation) on only one machine at any time solely for testing and
+development feedback within your enterprise.  You may also make one copy
+of the IBM C/C++ Tools: User Interface Class Library - Drag/Drop beta
+code solely for backup purposes or archival purposes.
+
+You may not copy, modify or merge copies of the IBM C/C++ Tools: User
+Interface Class Library - Drag/Drop beta code, except as this agreement
+provides.  You may not reverse compile or reverse assemble any programs
+in the IBM C/C++ Tools: User Interface Class Library - Drag/Drop beta
+code.  You may not rent, lease, sell, sublicense, or assign or otherwise
+transfer IBM C/C++ Tools: User Interface Class Library - Drag/Drop beta
+code.  IBM owns copyrights in the IBM C/C++ Tools: User Interface Class
+Library - Drag/Drop beta code.
+
+TERM and TERMINATION
+Unless IBM notifies you of an earlier date (with 14 days notice) your
+license for The IBM C/C++ Tools: User Interface Class Library -
+Drag/Drop beta code terminates on October 8, 1993.  Upon termination you
+agree to destroy all copies of the The IBM C/C++ Tools: User Interface
+Class Library - Drag/Drop beta code.  You may terminate your license at
+any time by destroying all your copies of the The IBM C/C++ Tools: User
+Interface Class Library - Drag/Drop beta code. IBM may terminate your
+license if you fail to comply with the terms and conditions of this
+agreement.
+
+DISCLAIMER OF WARRANTY
+The IBM C/C++ Tools: User Interface Class Library - Drag/Drop beta code
+contains pre-release code and may be modified substantially before
+general availability.  The IBM C/C++ Tools: User Interface Class Library
+- Drag/Drop beta code may not be at the level of performance or
+compatibility of generally available IBM products.
+
+The IBM C/C++ Tools: User Interface Class Library - Drag/Drop beta code
+is provided "AS IS" WITHOUT ANY IBM WARRANTIES OR CONDITIONS), EXPRESS
+OR IMPLIED WITH RESPECT TO THE THE IBM C/C++ TOOLS: USER INTERFACE CLASS
+LIBRARY - DRAG/DROP BETA CODE, INCLUDING THE IMPLIED WARRANTIES (OR
+CONDITIONS) OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+THE ENTIRE RISK ARISING OUT OF USE OR PERFORMANCE OF THE THE IBM C/C++
+TOOLS: USER INTERFACE CLASS LIBRARY - DRAG/DROP BETA CODE AND
+DOCUMENTATION REMAINS WITH YOU.
+
+Some jurisdictions do not allow the exclusion of implied warranties, so
+the above may not apply to you.
+
+IN NO EVENT WILL IBM BE LIABLE FOR ANY LOST PROFITS, LOST SAVINGS,
+INCIDENTAL OR INDIRECT DAMAGES OR OTHER ECONOMIC CONSEQUENTIAL DAMAGES,
+EVEN IF IBM OR ITS AUTHORISED SUPPLIER HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES. IN ADDITION, IBM WILL NOT BE LIABLE FOR ANY
+DAMAGES CLAIMED BY YOU BASED ON ANY THIRD PARTY CLAIM.
+
+Some jurisdictions do not allow the exclusion or limitation for
+consequential or incidential damages, so the above may not apply to you.
+
+If you use IBM C/C++ Tools: User Interface Class Library - Drag/Drop
+beta code in the United States, the license is governed by the laws of
+the State of New York.  If you use the IBM C/C++ Tools: User Interface
+Class Library - Drag/Drop beta code in Canada, this license is governed
+by the laws of the Province of Ontario.  Otherwise, this license is
+governed by the laws of the country in which you use the IBM C/C++
+Tools: User Interface Class Library - Drag/Drop beta code.
+
+(TM) IBM is a registered trademark of International Business Machines
+     Corporation.
+
